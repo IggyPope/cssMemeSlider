@@ -6,10 +6,11 @@ body {
   width: 100vw;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
   display: flex;
-  justify-content: center;
   flex-flow: column nowrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .images__container {
@@ -21,6 +22,7 @@ body {
   width: 500%;
   display: flex;
   flex-flow: row nowrap;
+  transition: 500ms transform ease-in-out;
 }
 
 .images__image-wrapper {
@@ -36,11 +38,12 @@ body {
 .footer__container {
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row-reverse nowrap;
   justify-content: space-between;
 }
 
 .text__container {
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -49,6 +52,7 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  transition: 500ms transform ease-in-out;
 }
 
 .text__punchline {
@@ -57,7 +61,31 @@ body {
 }
 
 .controls__container {
-  margin: 1rem 0;
   display: flex;
   flex-flow: row nowrap;
+}
+
+body:has(#meme1:checked) .images__track,
+body:has(#meme1:checked) .text__track {
+  transform: translateX(calc(-20%*0));
+}
+
+body:has(#meme2:checked) .images__track,
+body:has(#meme2:checked) .text__track {
+  transform: translateX(calc(-20%*1));
+}
+
+body:has(#meme3:checked) .images__track,
+body:has(#meme3:checked) .text__track {
+  transform: translateX(calc(-20%*2));
+}
+
+body:has(#meme4:checked) .images__track,
+body:has(#meme4:checked) .text__track {
+  transform: translateX(calc(-20%*3));
+}
+
+body:has(#meme5:checked) .images__track,
+body:has(#meme5:checked) .text__track {
+  transform: translateX(calc(-20%*4));
 }
