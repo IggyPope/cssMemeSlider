@@ -1,38 +1,57 @@
+:root {
+  --memes-count: 5;
+
+  --primary-bg-color: #292929;
+  --secondary-bg-color: #636363;
+  --font-color: #FFFFFF;
+}
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  color: var(--font-color);
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
   width: 100vw;
   min-height: 100vh;
   margin: 0;
-  padding: 0 2rem;
+  padding: 2rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   gap: 1rem;
+  background-color: var(--primary-bg-color);
 }
 
 .images__container {
   width: 100%;
+  padding: 1.5rem 0;
   overflow-x: hidden;
+  background-color: var(--secondary-bg-color);
+  border-radius: 1rem;
 }
 
 .images__track {
-  width: 500%;
+  width: calc(100% * var(--memes-count));
   display: flex;
   flex-flow: row nowrap;
   transition: 500ms transform ease-in-out;
 }
 
 .images__image-wrapper {
-  width: 20%;
+  width: calc(100% / var(--memes-count));
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .image {
-  height: 25rem;
+  max-height: 25rem;
+  max-width: 100%;
 }
 
 .footer__container {
@@ -42,7 +61,7 @@ body {
   justify-content: space-between;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .footer__container {
     width: 100%;
     display: flex;
@@ -58,7 +77,7 @@ body {
 }
 
 .text__track {
-  width: 500%;
+  width: calc(100% * var(--memes-count));
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -66,8 +85,9 @@ body {
 }
 
 .text__punchline {
-  width: 20%;
-  text-wrap: nowrap;
+  width: calc(100% / var(--memes-count));
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .controls__container {
@@ -77,25 +97,25 @@ body {
 
 body:has(#meme1:checked) .images__track,
 body:has(#meme1:checked) .text__track {
-  transform: translateX(calc(-20%*0));
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 0));
 }
 
 body:has(#meme2:checked) .images__track,
 body:has(#meme2:checked) .text__track {
-  transform: translateX(calc(-20%*1));
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 1));
 }
 
 body:has(#meme3:checked) .images__track,
 body:has(#meme3:checked) .text__track {
-  transform: translateX(calc(-20%*2));
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 2));
 }
 
 body:has(#meme4:checked) .images__track,
 body:has(#meme4:checked) .text__track {
-  transform: translateX(calc(-20%*3));
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 3));
 }
 
 body:has(#meme5:checked) .images__track,
 body:has(#meme5:checked) .text__track {
-  transform: translateX(calc(-20%*4));
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 4));
 }
