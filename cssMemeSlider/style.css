@@ -42,6 +42,16 @@ body {
   justify-content: space-between;
 }
 
+@media (max-width: 800px) {
+  .footer__container {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
 .text__container {
   width: 100%;
   overflow-x: hidden;
