@@ -4,6 +4,9 @@
   --primary-bg-color: #292929;
   --secondary-bg-color: #636363;
   --font-color: #FFFFFF;
+
+  --radio-color: aqua;
+  --radio-hover-color: aliceblue
 }
 
 * {
@@ -12,7 +15,7 @@
 
 html {
   color: var(--font-color);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Comic Sans MS", Textile, Cursive;
 }
 
 body {
@@ -23,7 +26,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   background-color: var(--primary-bg-color);
 }
 
@@ -44,6 +47,7 @@ body {
 
 .images__image-wrapper {
   width: calc(100% / var(--memes-count));
+  padding: 0 1rem;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -73,6 +77,9 @@ body {
 
 .text__container {
   width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
   overflow-x: hidden;
 }
 
@@ -87,12 +94,41 @@ body {
 .text__punchline {
   width: calc(100% / var(--memes-count));
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .controls__container {
   display: flex;
   flex-flow: row nowrap;
+}
+
+.controls__switch {
+  appearance: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0;
+  background-color: var(--radio-color);
+  border: 0.7rem solid var(--primary-bg-color);
+  border-radius: 50%;
+  outline: 0.3rem solid var(--radio-color);
+  outline-offset: -0.9rem;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .controls__switch:hover {
+    background-color: var(--radio-hover-color);
+    outline-color: var(--radio-hover-color);
+  }
+}
+
+.controls__switch:checked {
+  background-color: var(--primary-bg-color);
+}
+
+.controls__switch:active:not(:checked) {
+  background-color: rgb(172, 172, 172);
+  outline-color: rgb(172, 172, 172);
 }
 
 body:has(#meme1:checked) .images__track,
