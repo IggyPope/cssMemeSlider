@@ -1,0 +1,157 @@
+:root {
+  --memes-count: 5;
+
+  --primary-bg-color: #292929;
+  --secondary-bg-color: #636363;
+  --font-color: #FFFFFF;
+
+  --radio-color: aqua;
+  --radio-hover-color: aliceblue
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--font-color);
+  font-family: "Comic Sans MS", Textile, Cursive;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: var(--primary-bg-color);
+}
+
+.images__container {
+  width: 100%;
+  padding: 1.5rem 0;
+  overflow-x: hidden;
+  background-color: var(--secondary-bg-color);
+  border-radius: 1rem;
+}
+
+.images__track {
+  width: calc(100% * var(--memes-count));
+  display: flex;
+  flex-flow: row nowrap;
+  transition: 500ms transform ease-in-out;
+}
+
+.images__image-wrapper {
+  width: calc(100% / var(--memes-count));
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image {
+  max-height: 25rem;
+  max-width: 100%;
+}
+
+.footer__container {
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .footer__container {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.text__container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.text__track {
+  width: calc(100% * var(--memes-count));
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  transition: 500ms transform ease-in-out;
+}
+
+.text__punchline {
+  width: calc(100% / var(--memes-count));
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.controls__container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.controls__switch {
+  appearance: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0;
+  background-color: var(--radio-color);
+  border: 0.7rem solid var(--primary-bg-color);
+  border-radius: 50%;
+  outline: 0.3rem solid var(--radio-color);
+  outline-offset: -0.9rem;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .controls__switch:hover {
+    background-color: var(--radio-hover-color);
+    outline-color: var(--radio-hover-color);
+  }
+}
+
+.controls__switch:checked {
+  background-color: var(--primary-bg-color);
+}
+
+.controls__switch:active:not(:checked) {
+  background-color: rgb(172, 172, 172);
+  outline-color: rgb(172, 172, 172);
+}
+
+body:has(#meme1:checked) .images__track,
+body:has(#meme1:checked) .text__track {
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 0));
+}
+
+body:has(#meme2:checked) .images__track,
+body:has(#meme2:checked) .text__track {
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 1));
+}
+
+body:has(#meme3:checked) .images__track,
+body:has(#meme3:checked) .text__track {
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 2));
+}
+
+body:has(#meme4:checked) .images__track,
+body:has(#meme4:checked) .text__track {
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 3));
+}
+
+body:has(#meme5:checked) .images__track,
+body:has(#meme5:checked) .text__track {
+  transform: translateX(calc(calc(-100% / var(--memes-count)) * 4));
+}
